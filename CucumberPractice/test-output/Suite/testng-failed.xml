@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="9" guice-stage="DEVELOPMENT" verbose="5" name="Failed suite [Suite]" parallel="classes">
+  <parameter name="uName" value="DemoSalesManager"/>
+  <parameter name="pwd" value="crmsfa"/>
+  <parameter name="url" value="http://leaftaps.com/opentaps/control/main"/>
+  <test thread-count="9" verbose="5" name="Test(failed)" parallel="classes">
+    <classes>
+      <class name="leaftap.testcases.TC001_EditLead">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="loadOBJ"/>
+          <include name="setData"/>
+          <include name="runTestcaseEditLead" invocation-numbers="0"/>
+          <include name="login"/>
+        </methods>
+      </class> <!-- leaftap.testcases.TC001_EditLead -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
