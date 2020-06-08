@@ -24,8 +24,6 @@ public class TrivagoReservation extends BaseClass{
 	@Given("Go to https://www.trivago.com")
 	public void goToHttpsWwwTrivagoCom() throws InterruptedException {
 	    driver.get("https://www.trivago.com");
-	   // WebElement okButton = driver.findElement(By.id("onetrust-accept-btn-handler"));
-	   // wait.until(ExpectedConditions.visibilityOf(okButton)).click();
 	    Thread.sleep(2000);
 	    js.executeScript("window.scrollBy(0,150)", "");
 	    Thread.sleep(1000);
@@ -39,8 +37,7 @@ public class TrivagoReservation extends BaseClass{
 
 	@Given("Choose June 21 as check in and June 30 as check out")
 	public void chooseMayAsCheckInAndMayAsCheckOut() throws InterruptedException {
-		Thread.sleep(2000);
-		WebElement calTable = driver.findElement(By.className("cal-month"));
+	    Thread.sleep(2000);
 	    driver.findElement(By.xpath("//time[@datetime='2020-06-19']")).click(); Thread.sleep(1000);
 	    driver.findElement(By.xpath("//time[@datetime='2020-06-30']")).click(); Thread.sleep(1000);
     
@@ -48,7 +45,7 @@ public class TrivagoReservation extends BaseClass{
 
 	@Given("Select Room as Family Room")
 	public void selectRoomAsFamilyRoom() throws InterruptedException {
-		driver.findElement(By.xpath("//span[text()='Family rooms']")).click(); Thread.sleep(1000);    
+	    driver.findElement(By.xpath("//span[text()='Family rooms']")).click(); Thread.sleep(1000);    
 	}
 
 	@Given("Choose Number of Adults 2, Childern 1 and set Child's Age as 4")
@@ -104,7 +101,6 @@ public class TrivagoReservation extends BaseClass{
 	public void inMoreFiltersSelectAirConditioningRestaurantAndWiFiAndClickDone() throws InterruptedException {
 	    WebElement moreFilters = driver.findElement(By.xpath("//span[text()='Select']"));
 	    builder.moveToElement(moreFilters).perform(); Thread.sleep(1000);
-	    
 	    driver.findElement(By.xpath("//label[text()='Air conditioning']")).click();
 	    driver.findElement(By.xpath("//label[text()='WiFi']")).click();
 	    driver.findElement(By.xpath("//label[text()='Restaurant']")).click();
@@ -121,9 +117,8 @@ public class TrivagoReservation extends BaseClass{
 
 	@Given("Print the Hotel name, Rating, Number of Reviews and Click View Deal")
 	public void printTheHotelNameRatingNumberOfReviewsAndClickViewDeal() {
-		WebElement contents = driver.findElement(By.xpath("(//span[@class='item-link name__copytext'])[1]"));
-		
-		wait.until(ExpectedConditions.visibilityOf(contents));
+	    WebElement contents = driver.findElement(By.xpath("(//span[@class='item-link name__copytext'])[1]"));	
+	    wait.until(ExpectedConditions.visibilityOf(contents));
 	    System.out.println("Hotel Name is : "+driver.findElement(By.xpath("(//span[@class='item-link name__copytext'])[1]")).getText());
 	    System.out.println("Rating is : "+driver.findElement(By.xpath("(//span[@itemprop='ratingValue'])[1]")).getText());
 	    System.out.println("Number of Reviews is : "+driver.findElement(By.xpath("(//span[contains(text(),'reviews')])[1]")).getText().replaceAll("[^0-9]", ""));
@@ -135,8 +130,8 @@ public class TrivagoReservation extends BaseClass{
 	    List<String> list = new ArrayList<String>(driver.getWindowHandles());
 	    driver.switchTo().window(list.get(1));
 	    //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[text()='Close']")))).click();
-		System.out.println("Curent URL is: "+driver.getCurrentUrl());
-		Thread.sleep(1000);
+	    System.out.println("Curent URL is: "+driver.getCurrentUrl());
+	    Thread.sleep(1000);
 	}
 
 	@Given("Print the Price of the Room and click Choose Your Room")
