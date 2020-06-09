@@ -46,8 +46,8 @@ public class AjioShopping extends BaseClass{
 	public void checkAllTheResultsAreAjio() {
 	    List<WebElement> brandName = driver.findElements(By.xpath("//div[@class='brand']"));
 	    for (WebElement EachBrandName : brandName) {
-			System.out.println(EachBrandName.getText());
-		}   
+		System.out.println(EachBrandName.getText());
+	     }   
 	}
 
 	@Given("Set Sort by the result as Discount")
@@ -69,7 +69,6 @@ public class AjioShopping extends BaseClass{
 	    wait.until(ExpectedConditions.visibilityOf(Ajio)).click();
 	    List<String> list = new ArrayList<String>(driver.getWindowHandles());
 	    driver.switchTo().window(list.get(1));
-	    
 	    WebElement addToCart = driver.findElement(By.xpath("//div[@class='pdp-addtocart-button']"));
 	    wait.until(ExpectedConditions.elementToBeClickable(addToCart)).click();
 	    Thread.sleep(2000);
@@ -79,8 +78,10 @@ public class AjioShopping extends BaseClass{
 	public void verifyTheErrorMessageSelectYourSizeToKnowYourEstimatedDeliveryDate() throws InterruptedException {
 	    WebElement firstErrMsg = driver.findElement(By.xpath("//span[text()='Please select a size']"));
 	    System.out.println("After Clicking Add to cart error message is : "+firstErrMsg.getText());
+	    System.out.println();
 	    WebElement defaultErrorMsg = driver.findElement(By.xpath("//span[@class='edd-pincode-msg-details']"));
 	    System.out.println("The default error message displayed is : "+defaultErrorMsg.getText());
+	    System.out.println();
 	    Thread.sleep(2000);
 	}
 
@@ -94,8 +95,8 @@ public class AjioShopping extends BaseClass{
 	@Given("click on Enter pin-code to know estimated delivery date")
 	public void clickOnEnterPinCodeToKnowEstimatedDeliveryDate() throws InterruptedException {
 	  //js.executeScript("window.scrollBy(0,300)", "");
-		Thread.sleep(6000);
-		WebElement pincode = driver.findElement(By.xpath("//span[@class='edd-pincode-msg-details edd-pincode-msg-details-pointer edd-pincode-msg-details-text-color']"));
+	    Thread.sleep(6000);
+	    WebElement pincode = driver.findElement(By.xpath("//span[@class='edd-pincode-msg-details edd-pincode-msg-details-pointer edd-pincode-msg-details-text-color']"));
 	    js.executeScript("arguments[0].click()", pincode);
 	    
 	}
@@ -113,15 +114,17 @@ public class AjioShopping extends BaseClass{
 	    WebElement secondSuccessMessage = driver.findElement(By.xpath("//span[@class='edd-message-success-details-note']"));
 	    wait.until(ExpectedConditions.visibilityOf(firstSuccessMessage)).isDisplayed();
 	    System.out.println("The 1st success message is : "+firstSuccessMessage.getText());
+	    System.out.println();
 	    System.out.println("The 2nd success message is : "+secondSuccessMessage.getText());
+	    System.out.println();
 	    driver.findElement(By.xpath("//div[@class='btn-cart']")).click();
 	}
 
 	@Then("Click on Proceed to Shipping and close the browser")
 	public void clickOnProceedToShippingAndCloseTheBrowser() {
 		
-		WebElement orderSummary = driver.findElement(By.id("orderSummary"));
-		System.out.println(orderSummary.getText()+"/t");
+	    WebElement orderSummary = driver.findElement(By.id("orderSummary"));
+	    System.out.println(orderSummary.getText()+"/t");
 	    driver.findElement(By.xpath("//button[@class='rilrtl-button button shipping-button']")).click();
 	    
 	}
