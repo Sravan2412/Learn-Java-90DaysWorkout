@@ -13,6 +13,9 @@ public class Hooks extends BaseClass {
 	public void login() {
 	options = new ChromeOptions();
 	options.addArguments("--disable-notifications");	
+	DesiredCapabilities cap = new DesiredCapabilities();
+	cap.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR,UnexpectedAlertBehaviour.DISMISS);
+	options.merge(cap);
 	System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 	driver = new ChromeDriver(options);
 	driver.manage().window().maximize();
