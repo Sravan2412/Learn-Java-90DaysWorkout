@@ -119,8 +119,8 @@ public class JustDialFlightTicketReservation extends BaseClass {
 		for (int i = 0; i < ArrivalTime.size(); i++) {
 			map.put(ArrivalTime.get(i).getText(), ArrivalAirports.get(i).getText());
 		}
-		System.out.println("Arrival time with respective Airports as below :- ");
-		map.entrySet().forEach(result->System.out.println("Arrival time: "+result.getKey()+" --> "+"Airport: "+result.getValue()+"\t"));
+		System.out.println("Arrival time with respective Airport name and Date as below :- ");
+		map.entrySet().forEach(result->System.out.println("Arrival time: "+result.getKey()+" --> "+"Airport name and Date: "+result.getValue()+"\n"));
 		System.out.println();
 		// Thread.sleep(4000);
 	}
